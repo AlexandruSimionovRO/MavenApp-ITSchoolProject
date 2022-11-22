@@ -94,8 +94,8 @@ pipeline {
     post{
         always{
             mail to: "alexandru.simionov.ro@gmail.com",
-            subject: "$PIPELINE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!",
-            body: "$PIPELINE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS: Check console output at $BUILD_URL to view the results."
+            subject: "$IMAGE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!",
+            body: "$IMAGE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS: Check console output at $BUILD_URL to view the results."
         }
     }
 }
