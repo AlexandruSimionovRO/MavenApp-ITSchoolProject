@@ -91,4 +91,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext body: $PROJECT_NAME '- Build #' $BUILD_NUMBER '-' $BUILD_STATUS'!', recipientProviders: [$class: $DEFAULT_RECIPIENTS], subject: $PROJECT_NAME '- Build #' $BUILD_NUMBER '-' $BUILD_STATUS'!'
+        }
+    }
 }
