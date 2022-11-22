@@ -93,9 +93,9 @@ pipeline {
     }
     post{
         always{
-            mail to: "alexandru.simionov.ro@gmail.com",
-            subject: "$IMAGE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!",
-            body: "$IMAGE_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS: Check console output at $BUILD_URL to view the results."
+            emailext to: "alexandru.simionov.ro@gmail.com",
+            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
         }
     }
 }
