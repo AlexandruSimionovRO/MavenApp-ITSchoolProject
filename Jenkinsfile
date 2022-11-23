@@ -49,7 +49,7 @@ pipeline {
             environment {
                 AWS_ACCESS_KEY_ID = credentials('Jenkins_AWS_Access_Key_ID')
                 AWS_SECRET_ACCESS_KEY = credentials('Jenkins_AWS_Secret_Key')
-                TF_VAR_env_prefix = 'test'
+                TF_VAR_env_prefix = 'MavenApp-ITSchool'
             }
             steps {
                 script {

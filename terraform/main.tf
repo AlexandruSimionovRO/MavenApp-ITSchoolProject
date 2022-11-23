@@ -21,7 +21,7 @@ resource "aws_subnet" "MavenApp-ITSchool-subnet-1" {
 resource "aws_internet_gateway" "MavenApp-ITSchool-igw" {
     vpc_id = aws_vpc.MavenApp-ITSchool-vpc.id
     tags = {
-        Name: "${var.env_prefix}-igw"
+        Name: "${var.env_prefix}-Gateway"
     }
 }
 
@@ -33,7 +33,7 @@ resource "aws_default_route_table" "main-rtb" {
         gateway_id = aws_internet_gateway.MavenApp-ITSchool-igw.id
     }
     tags = {
-        Name: "${var.env_prefix}-main-rtb"
+        Name: "${var.env_prefix}-RTB"
     }
 }
 
@@ -63,7 +63,7 @@ resource "aws_default_security_group" "default-sg" {
     }
 
     tags = {
-        Name: "${var.env_prefix}-default-sg"
+        Name: "${var.env_prefix}-SG"
     }
 }
 
@@ -94,7 +94,7 @@ resource "aws_instance" "MavenApp-ITSchool-server" {
     user_data = file("entry-script.sh")
 
     tags = {
-        Name = "${var.env_prefix}-server"
+        Name = "${var.env_prefix}-Server"
     }
 }
 
